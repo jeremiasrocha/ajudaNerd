@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Principal.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+
+        <p:fieldset legend="ForumDúvidas">
+
+            <h:panelGrid columns="4">
+
+                <p:outputLabel value="Assunto:"/>
+                <p:inputText size="20" maxlength="40"/>
+                <p:commandButton value="Buscar"/>
+                <p:commandButton value="Fazer uma Pergunta" oncomplete="PF('pergunta').show();"/>
+
+            </h:panelGrid>
+
+            <p:dataTable emptyMessage="Nenhum Registro Encontrado." paginator="true">
+
+                <p:column headerText="Assunto">
+                </p:column>
+
+                <p:column headerText="Pergunta" width="600">
+                </p:column>
+
+                <p:column headerText="Ação">
+                </p:column>
+
+            </p:dataTable>
+
+        </p:fieldset>
+
+        <p:dialog header="Qual a sua Dúvida?" widgetVar="pergunta"
+                  draggable="false" resizable="false" modal="true" closable="false">
+
+            <p:outputLabel value="Assunto:"/>
+            <p:inputText size="20" maxlength="40"/>
+
+            <p:editor id="editor" widgetVar="editorWidget" value="#{editorView.text}" width="400" height="150" />
+
+            <h:panelGrid columns="3">
+                <p:commandButton value="Postar"  icon="ui-icon-disk" />
+                <p:commandButton value="Apagar" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+                <p:commandButton value="Fechar" oncomplete="PF('pergunta').hide();"/>
+            </h:panelGrid>
+
+        </p:dialog>
+
+    </ui:define>
+
+</ui:composition>

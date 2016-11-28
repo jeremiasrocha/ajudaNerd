@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ajuda Nerd</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+
+    <h:body styleClass="geral">
+
+        <h:form id="formulario">
+
+
+
+            <div id="loginMensagem">
+            </div>
+
+            <div id="login">
+
+                <p:messages id="mensagem" closable="true"/>
+
+                <div id="bgk">
+
+                    <a id="logo" href="#">
+
+                    </a>
+
+                    <p:graphicImage url="imagens/ajuda_nerd.png"/>
+
+                    <div id="right">
+                        <ui:insert name="right">
+
+                            <h:outputLabel value="CPF:"/>
+                            <p:inputMask size="15" maxlength="15" 
+                                         mask="999.999.999-99" required="true"
+                                         requiredMessage="O campo cpf é obrigatório!"
+                                         value="#{LoginBean.usuario.cpf}"
+                                         />
+
+                            <p:spacer width="20px"/>
+
+                            <h:outputLabel value="Senha:"/>
+                            <p:password required="true"
+                                        requiredMessage="O campo Senha é obrigatório"                                       
+                                        value="#{LoginBean.usuario.senha}">
+                            </p:password>
+
+                            <p:spacer width="20px"/>
+
+                            <p:commandButton value="Entrar"
+                                             update="mensagem"
+                                             action="#{LoginBean.validaLogin}">
+                            </p:commandButton>
+
+                            <br>
+
+                            </br>
+
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+
+                            <p:commandLink value="Cadastrar" oncomplete="PF('dialogo1').show();"/>
+
+                            <p:dialog header="Cadastro de Usuario" widgetVar="dialogo1"
+                                      draggable="false" resizable="false" modal="true" closable="false">
+
+                                <h:form>
+                                    
+                                    <p:messages id="mensage" closable="true"/>
+
+                                    <h:panelGrid columns="4">
+
+                                        <p:outputLabel value="CPF:"/>
+                                        <p:inputMask size="14" maxlength="12"
+                                                     mask="999.999.999-99"
+                                                     value="#{usuarioBean.usuario.cpf}"/>
+
+                                        <p:outputLabel value="Senha:"/>
+                                        <p:inputText size="18" maxlength="18"
+                                                     value="#{usuarioBean.usuario.senha}"/>
+
+                                        <p:outputLabel value="Nome:"/>
+                                        <p:inputText size="25" maxlength="25"
+                                                     value="#{usuarioBean.usuario.nome}"/>                      
+
+                                        <p:outputLabel value="Estado:"/>
+                                        <p:inputText size="10" maxlength="10"
+                                                     value="#{usuarioBean.usuario.estado}"/>
+
+                                        <p:outputLabel value="Nascimento:"/>
+                                        <p:inputMask size="10" maxlength="7"
+                                                     mask="99/99/9999"
+                                                     value="#{usuarioBean.usuario.nascimento}"/>
+
+                                        <p:outputLabel value="Cidade:"/>
+                                        <p:inputText size="20" maxlength="20"
+                                                     value="#{usuarioBean.usuario.cidade}"/>
+
+                                        <p:outputLabel value="CEP:"/>
+                                        <p:inputMask size="9" maxlength="9"
+                                                     mask="99999-999"
+                                                     value="#{usuarioBean.usuario.cep}"/>
+
+                                        <p:outputLabel value="Telefone:"/>
+                                        <p:inputMask size="13" maxlength="10"
+                                                     mask="(99)9999-9999"
+                                                     value="#{usuarioBean.usuario.telefone}"/>
+
+                                        <p:outputLabel value="Endereço:"/>
+                                        <p:inputText size="20" maxlength="20"
+                                                     value="#{usuarioBean.usuario.endereco}"/>
+
+                                        <p:outputLabel value="Celular:"/>
+                                        <p:inputMask size="13" maxlength="10"
+                                                     mask="(99)99999-9999"
+                                                     value="#{usuarioBean.usuario.celular}"/>
+
+                                        <p:outputLabel value="Bairro:"/>
+                                        <p:inputText size="15" maxlength="15"
+                                                     value="#{usuarioBean.usuario.bairro}"/>
+
+                                        <p:outputLabel value="E-mail:"/>
+                                        <p:inputText size="30" maxlength="40"
+                                                     value="#{usuarioBean.usuario.email}"/>
+
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2">
+
+                                        <p:commandButton value="Cadastrar" 
+                                                         update="mensage"
+                                                         rendered="true"
+                                                         actionListener="#{usuarioBean.cadastrarUsuario}"/>
+                                                         
+                                        <p:commandButton value="Fechar" oncomplete="PF('dialogo1').hide();"/>
+
+                                    </h:panelGrid>
+
+                                </h:form>
+
+                            </p:dialog>
+
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+                            <p:spacer width="10px"/>
+
+                            <p:commandLink value="Perdeu Sua senha" oncomplete="PF('dialogo2').show();"/>
+
+                            <p:dialog header="Perdeu sua Senha" widgetVar="dialogo2"
+                                      draggable="false" resizable="false" modal="true" closable="false">
+
+                                <h:form>
+
+                                    <h:panelGrid columns="2">
+
+                                        <p:outputLabel value="CPF:"/>
+                                        <p:inputMask size="14" maxlength="20"
+                                                     mask="999.999.999-99"/>
+
+                                        <p:outputLabel value="E-mail"/>
+                                        <p:inputText size="25" maxlength="30"/>
+
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2">
+
+                                        <p:commandButton value="Buscar" onclick="PF('dlg1').show();"/>
+                                        <p:commandButton value="Fechar" oncomplete="PF('dialogo2').hide();"/>
+
+                                        <p:dialog header="Sua Senha:" widgetVar="dlg1">
+                                            <h:outputText value="" />
+                                        </p:dialog>
+
+                                    </h:panelGrid>
+
+                                </h:form>
+
+                            </p:dialog>
+
+                        </ui:insert>
+                    </div>
+
+                </div>
+                <div id="rigthBgk">  </div>
+
+                <div id="left">
+                    <ui:insert name="left">
+                        <h:form>
+                            <p:menu toggleable="true" style="width: 155px">
+                                <p:submenu label="Visitante">
+                                    <p:menuitem value="Forum de Duvidas" icon="ui-icon-help" disabled="true"/>
+                                    <p:menuitem value="Materiais" icon="ui-icon-note" disabled="true"/>
+                                </p:submenu>
+                            </p:menu>       
+                        </h:form>
+                    </ui:insert>
+
+                </div>
+                <div id="content" class="left_content">
+                    <ui:insert name="content">
+
+                        <h:form style="">
+
+                            <p:fieldset legend="Materiais">
+
+                                <h:panelGrid columns="4">
+                                    <p:outputLabel value="Assunto do Material:"/>
+                                    <p:inputText size="30" maxlength="50"/>
+                                    <p:commandButton value="Buscar" icon="ui-icon-search"/>
+                                    <p:commandButton value="Cadastrar Material" oncomplete="PF('dialogo').show();" 
+                                                     disabled="true" icon=" ui-icon-plusthick"/>
+                                </h:panelGrid>
+
+                                <p:dataTable emptyMessage="Nenhum Registro Encontrado." paginator="true">
+
+                                    <p:column headerText="Assunto do Material">
+                                    </p:column>
+
+                                    <p:column headerText="Material">
+                                    </p:column>
+
+                                    <p:column headerText="Data">
+                                    </p:column>
+
+                                    <p:column headerText="Nome">
+                                    </p:column>
+
+                                    <p:column headerText="Ação">
+                                    </p:column>
+
+                                </p:dataTable>
+
+                            </p:fieldset>
+
+                        </h:form>
+
+                        <p:dialog header="Cadastro de Material" widgetVar="dialogo"
+                                  draggable="false" resizable="false" modal="true" closable="false">
+
+                            <h:form>
+
+                                <h:panelGrid columns="2">
+
+                                    <p:outputLabel value="Assunto do Material:"/>
+                                    <p:inputText size="20" maxlength="40"/>
+
+                                    <p:outputLabel value="Buscar:"/>
+                                    <p:fileUpload  mode="simple"/>
+
+                                    <p:outputLabel value="Data:"/>
+                                    <p:inputMask mask="99/99/9999"/>
+
+                                    <p:outputLabel value="Nome"/>
+                                    <p:inputText size="40" maxlength="60"/>
+
+                                </h:panelGrid>
+                                <h:panelGrid columns="2">
+
+                                    <p:commandButton value="Cadastrar"/>
+                                    <p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
+
+                                </h:panelGrid>
+
+
+                            </h:form>
+
+                        </p:dialog>
+
+                    </ui:insert>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

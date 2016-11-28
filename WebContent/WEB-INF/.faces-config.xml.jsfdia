@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="dadosPessoaisUSER::#usuario#DadosPessoais.xhtml" NAME="output"
+    PATH="/usuario/DadosPessoais.xhtml"
+    TARGET="rules:#usuario#DadosPessoais.xhtml"
+    TITLE="dadosPessoaisUSER" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="forumDuvidasUSER::#usuario#ForumDuvidas.xhtml" NAME="output1"
+    PATH="/usuario/ForumDuvidas.xhtml"
+    TARGET="rules:#usuario#ForumDuvidas.xhtml" TITLE="forumDuvidasUSER" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="materiaisUSER::#usuario#Materiais.xhtml"
+    NAME="output2" PATH="/usuario/Materiais.xhtml"
+    TARGET="rules:#usuario#Materiais.xhtml" TITLE="materiaisUSER" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="mensagensUSER::#usuario#Mensagens.xhtml"
+    NAME="output3" PATH="/usuario/Mensagens.xhtml"
+    TARGET="rules:#usuario#Mensagens.xhtml" TITLE="mensagensUSER" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="usuario::#usuario#principalUsuario.xhtml"
+    NAME="output4" PATH="/usuario/principalUsuario.xhtml"
+    TARGET="rules:#usuario#principalUsuario.xhtml" TITLE="usuario" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="administrador::#administrador#principalAdministrador.xhtml"
+    NAME="output5" PATH="/administrador/principalAdministrador.xhtml"
+    TARGET="rules:#administrador#principalAdministrador.xhtml"
+    TITLE="administrador" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="forumDuvidasADMIN::#administrador#ForumDuvidas.xhtml"
+    NAME="output6" PATH="/administrador/ForumDuvidas.xhtml"
+    TARGET="rules:#administrador#ForumDuvidas.xhtml"
+    TITLE="forumDuvidasADMIN" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="materiasADMIN::#administrador#Materiais.xhtml" NAME="output7"
+    PATH="/administrador/Materiais.xhtml"
+    TARGET="rules:#administrador#Materiais.xhtml" TITLE="materiasADMIN" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="mensagensADMIN::#administrador#Mensagens.xhtml" NAME="output8"
+    PATH="/administrador/Mensagens.xhtml"
+    TARGET="rules:#administrador#Mensagens.xhtml" TITLE="mensagensADMIN" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#usuario#Mensagens.xhtml"
+  PATH="/usuario/Mensagens.xhtml" SHAPE="304,625,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#administrador#ForumDuvidas.xhtml"
+  PATH="/administrador/ForumDuvidas.xhtml" SHAPE="304,961,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#administrador#Mensagens.xhtml"
+  PATH="/administrador/Mensagens.xhtml" SHAPE="304,1185,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#usuario#DadosPessoais.xhtml"
+  PATH="/usuario/DadosPessoais.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#usuario#principalUsuario.xhtml"
+  PATH="/usuario/principalUsuario.xhtml" SHAPE="304,737,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#usuario#ForumDuvidas.xhtml"
+  PATH="/usuario/ForumDuvidas.xhtml" SHAPE="304,401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#usuario#Materiais.xhtml"
+  PATH="/usuario/Materiais.xhtml" SHAPE="304,513,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#administrador#principalAdministrador.xhtml"
+  PATH="/administrador/principalAdministrador.xhtml" SHAPE="304,849,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#administrador#Materiais.xhtml"
+  PATH="/administrador/Materiais.xhtml" SHAPE="304,1073,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

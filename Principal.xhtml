@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ajuda Nerd</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+
+    <h:body styleClass="geral">
+
+        <h:form id="formulario">
+
+
+            <div id="loginMensagem">
+                <p:messages id="mensagem" closable="true"/>
+            </div>
+
+            <div id="login">
+
+                <div id="bgk">
+
+                    <a id="logo" href="#">
+
+                    </a>
+                    <div id="top" class="top">
+                        <ui:insert name="top">
+
+                            <p:graphicImage url="../imagens/ajuda_nerd.png"/>
+
+                        </ui:insert>
+                    </div>
+                </div>
+
+                <div id="left">
+                    <ui:insert name="left">
+                        <h:form>
+
+                            <p:menu toggleable="true" style="width: 155px">
+                                <p:submenu label="Usuario">
+                                    <p:menuitem value="Forum de Duvidas"  icon="ui-icon-help"
+                                                outcome="/paginas/ForumDuvidas"/>
+                                    <p:menuitem value="Seus Materiais" icon="ui-icon-note"
+                                                outcome="/paginas/Materiais"/>
+                                    <p:menuitem value="Dados Pessoais" icon="ui-icon-person"
+                                                outcome="/paginas/DadosPessoais"/>
+                                    <p:menuitem value="Mensagens" icon="ui-icon-mail-closed"
+                                                outcome="/paginas/Mensagens"/>
+                                </p:submenu>
+                                <p:submenu label="Ações">
+                                    <p:menuitem value="Sobre" ajax="false" icon="ui-icon-carat-1-e"/>
+                                   
+                                    <p:menuitem value="Home" ajax="false" icon=" ui-icon-home"
+                                                outcome="/paginas/Principal"/>
+                                    <p:menuitem value="Sair" ajax="false" icon="ui-icon-power"
+                                                outcome="/index"/>
+                                </p:submenu>
+                            </p:menu>       
+                        </h:form>
+
+                    </ui:insert>
+                </div>
+                <div id="content" class="left_content">
+                    <ui:insert name="content">
+
+                        <h:form style="">
+
+                            <p:fieldset legend="Materiais">
+
+                                <h:panelGrid columns="4">
+                                    <p:outputLabel value="Assunto do Material:"/>
+                                    <p:inputText size="30" maxlength="50"/>
+                                    <p:commandButton value="Buscar"/>
+                                    <p:commandButton value="Cadastrar Material" oncomplete="PF('dialogo').show();"/>
+                                </h:panelGrid>
+
+                                <p:dataTable emptyMessage="Nenhum Registro Encontrado." paginator="true">
+
+                                    <p:column headerText="Assunto do Material">
+                                    </p:column>
+
+                                    <p:column headerText="Material">
+                                    </p:column>
+
+                                    <p:column headerText="Data">
+                                    </p:column>
+
+                                    <p:column headerText="Nome">
+                                    </p:column>
+
+                                    <p:column headerText="Ação">
+                                    </p:column>
+
+                                </p:dataTable>
+
+                            </p:fieldset>
+
+                        </h:form>
+
+                        <p:dialog header="Cadastro de Material" widgetVar="dialogo"
+                                  draggable="false" resizable="false" modal="true" closable="false">
+
+                            <h:form>
+
+                                <h:panelGrid columns="2">
+
+                                    <p:outputLabel value="Assunto do Material:"/>
+                                    <p:inputText size="20" maxlength="40"/>
+
+                                    <p:outputLabel value="Buscar:"/>
+                                    <p:fileUpload value="#{materialBean.arquivo}" mode="simple"/>
+
+                                    <p:outputLabel value="Data:"/>
+                                    <p:inputMask mask="99/99/9999"/>
+
+                                    <p:outputLabel value="Nome"/>
+                                    <p:inputText size="40" maxlength="60"/>
+
+                                </h:panelGrid>
+                                <h:panelGrid columns="2">
+
+                                    <p:commandButton value="Cadastrar"/>
+                                    <p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();"/>
+
+                                </h:panelGrid>
+
+                            </h:form>
+
+                        </p:dialog>
+
+                    </ui:insert>
+                </div>
+            </div>
+        </h:form>
+
+    </h:body>
+
+</html>
